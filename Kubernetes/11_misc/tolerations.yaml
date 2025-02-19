@@ -1,0 +1,36 @@
+# kubectl taint node gke-nextopsgke23-default-pool-9ec96b3e-glkk gpuEnabled=true:NoSchedule
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: taints-tol-example
+  labels: 
+    app: nginx-app
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: nginx-app
+  template:
+    metadata:
+      labels:
+        app: nginx-app
+    spec:
+      containers:
+      - name: nginx-app
+        image: nginx
+        resources:
+          # limits:
+          #   memory: "128Mi"
+          #   cpu: "500m"
+        ports:
+        - containerPort: 80
+      tolerations:
+      - key: "gpuEnabled"
+        operator: "Equal"
+        value: "true"
+        effect: "NoSchedule"
+      nodeSelector:  # Tolerations let the pod run on the tainted node, but they do not force it to run there. They also can get scheduled on to other nodes. Use Nodeselector to schedule on to specific node. 
+        gpuEnabled: "true"
+
+# Tolerations let the pod run on the tainted node, but they do not force it to run there. 
+# They also can get scheduled on to other nodes. Use Nodeselector to schedule on to specific node. 

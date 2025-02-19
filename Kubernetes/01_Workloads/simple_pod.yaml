@@ -9,17 +9,3 @@ spec:
       image: nginx:latest
       ports:
         - containerPort: 80
-  
-
-
-template:
-    metadata: 
-      name: nginx-pod
-      labels:
-        app: nginx
-  spec:
-    containers: 
-      - name: nginx-container
-        image: nginx:latest
-        ports:
-          - containerPort: 80
