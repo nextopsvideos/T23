@@ -1,0 +1,10 @@
+#rg_name = "LocalRG"
+rg_location = "WestUS"
+vnet_name = "LocalVNET"
+vnet_address_space = [ "10.20.0.0/16" ]
+subnet1_name = "Subnet01"
+subnet2_name = "Subnet02"
+subnet3_name = "Subnet03"
+subnet1_aspace = [ "10.20.0.0/24" ]
+subnet2_aspace = [ "10.20.1.0/24" ]
+subnet3_aspace = [ "10.20.2.0/24" ]

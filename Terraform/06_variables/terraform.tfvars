@@ -1,0 +1,9 @@
+rg_name         = "NextOpsRGT23"
+rg_location     = "WestUS"
+asp_name        = "nextopsaspt23"
+app_name        = "nextopswat23"
+os_type         = "Linux"
+sku_name        = "P1v2"
+vnet_name       = "NextOpsVNETT23"
+vnet_address_space      = [ "10.10.0.0/16" ]
+webapp_public_access    = false
